@@ -56,7 +56,16 @@ export default {
       // return state.
     },
     listData(state, { payload: data }) {
-      return {...state, list: [...data.list]};
+//       AreaName: "北京"
+      // CityId: 110100
+      // NoMarket: false
+      // OldCityId: 646
+      // Pinyin: "beijing"
+      // ProvinceId: 110000
+      // Result:
+      const list = data.Result;
+      // debugger
+      return { ...state, list };
     }
   }
 };
