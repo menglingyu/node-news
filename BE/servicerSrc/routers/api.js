@@ -1,21 +1,26 @@
-const router = require('koa-router')()
+const router = require("koa-router")();
+import Iconv from "iconv-lite";
+import { getCarList } from "../services/carFamily";
 
-router.get('/car', (ctx) => {
-    // ctx.;
+router.get("/car", async ctx => {
+    const res = await getCarList();
+    const _data = Iconv.decode(res, "gb2312").toString();
+    // console.log(JSON.stringify(_data));
+    const _1 = _data.split("(")[1];
+    const data = _1.split(")")[0];
+    ctx.body = {
+      success: true,
+      data: JSON.parse(data)
+      // text: '我是api
+    };
+  })
+  .get("/get/user.json", ctx => {
     ctx.body = {
       success: true,
       data: {
-        list: ["汽车之家新闻1", "汽车之家新闻2", "汽车之家新闻3"]
+        text: "my name is koa.js!"
       }
-      // text: '我是api
     };
-}).get('/get/user.json', (ctx) => {
-    ctx.body = {
-        success: true,
-        data: {
-            text: 'my name is koa.js!'
-        }
-    }
-})
+  });
 
-export default router
+export default router;

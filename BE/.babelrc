@@ -1,12 +1,17 @@
+// {
+//     "presets": [
+//         "babel-preset-env",
+//         "stage-3"
+//     ],
+//     "plugins": [
+//         "transform-runtime",
+//         "transform-function-bind",
+//         "transform-async-to-module-method",
+//         "transform-async-to-generator"
+//     ]
+// }
+
 {
-    "presets": [
-        "babel-preset-env",
-        "stage-3"
-    ],
-    "plugins": [
-        "transform-runtime",
-        "transform-function-bind",
-        "transform-async-to-module-method",
-        "transform-async-to-generator"
-    ]
+  "presets": ["babel-preset-env", "stage-3"],
+  "plugins": ["transform-runtime", "transform-function-bind"]
 }
