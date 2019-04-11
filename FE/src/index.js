@@ -1,8 +1,6 @@
 import dva from "dva";
 import "./index.css";
 
-// 1. Initialize
-// const app = dva();
 const app = dva({
   initialState: {
     user: { name: "孟令禹" },
@@ -15,24 +13,13 @@ const app = dva({
         "Los Angeles battles huge wildfires."
       ]
     }
-
-    // products: [
-    //   {
-    //     name: "antd",
-    //     id: 2,
-    //     isStar: false
-    //   }
-    // ]
   }
 });
 
-// 2. Plugins
-// app.use({});
-
-// 3. Model
-// app.model(require('./models/example').default);
+// app.model(require("./models/common").default);
 app.model(require("./models/user").default);
 app.model(require("./models/products").default);
+
 
 // 4. Router
 app.router(require("./router").default);
